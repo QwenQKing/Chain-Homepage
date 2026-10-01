@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CHAIN: Calibrated LLM Forecasting via Causal-Temporal Hypergraph Inference" />
+  <title>CHAIN</title>
+  <style>
+    :root {
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft: #f7f7f8;
+      --dark: #111827;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .hero {
+      text-align: center;
+      padding: 66px 0 42px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+    }
+    .subtitle {
+      max-width: 900px;
+      margin: 22px auto 20px;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .authors {
+      margin-top: 18px;
+      font-size: 18px;
+    }
+    .affiliations {
+      margin-top: 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--dark);
+      color: #fff;
+      padding: 10px 19px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .section {
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section.soft { background: var(--soft); }
+    .section h2 {
+      text-align: center;
+      font-size: 34px;
+      margin: 0 0 26px;
+    }
+    .abstract {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: justify;
+      font-size: 17px;
+    }
+    .carousel-shell {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .slide { display: none; }
+    .slide.active { display: block; }
+    .slide img {
+      display: block;
+      max-width: 100%;
+      max-height: 650px;
+      width: auto;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+    .caption {
+      max-width: 900px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: 16px;
+      color: #374151;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .nav button {
+      border: 1px solid #d1d5db;
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 15px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .dots { display: flex; gap: 7px; }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d1d5db;
+      cursor: pointer;
+    }
+    .dot.active { background: #111827; }
+    .paper-frame {
+      width: 100%;
+      height: 720px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .fallback {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    pre {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 22px;
+      border-radius: 8px;
+      overflow-x: auto;
+      background: #f3f4f6;
+      border: 1px solid var(--line);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    footer {
+      padding: 34px 0 50px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 700px) {
+      .hero { padding-top: 44px; }
+      .section { padding: 42px 0; }
+      .paper-frame { height: 520px; }
+      .authors { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>CHAIN</h1>
+      <div class="subtitle">Calibrated LLM Forecasting via Causal-Temporal Hypergraph Inference</div>
+
+      <div class="authors">
+        Wenjin Liu<sup>1</sup>, Chenxi Wang<sup>1</sup>, Yue Lu<sup>1</sup>, Zhe Cui<sup>1*</sup>, Haoran Luo<sup>2*</sup>
+      </div>
+      <div class="affiliations">
+        <sup>1</sup>Hithink Research &nbsp;&nbsp; <sup>2</sup>Nanyang Technological University &nbsp;&nbsp; * Corresponding authors
+      </div>
+
+      <div class="buttons">
+        <a class="button" href="https://arxiv.org/abs/2609.36689" target="_blank" rel="noopener">arXiv</a>
+        <a class="button" href="static/pdfs/chain.pdf" target="_blank">Paper</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="carousel-shell">
+        <div class="slide active">
+          <img src="static/images/fig1.png" alt="Figure 1" />
+          <div class="caption"><strong>Figure 1.</strong> An illustration of the proposed CHAIN.</div>
+        </div>
+        <div class="slide">
+          <img src="static/images/fig2.png" alt="Figure 2" />
+          <div class="caption"><strong>Figure 2.</strong> Inference-time approaches to calibrated event forecasting: existing methods and CHAIN.</div>
+        </div>
+        <div class="slide">
+          <img src="static/images/fig3.png" alt="Figure 3" />
+          <div class="caption"><strong>Figure 3.</strong> The overall framework of CHAIN, with CTVF, Noisy-OR aggregation, and adaptive fusion.</div>
+        </div>
+        <div class="slide">
+          <img src="static/images/fig4.png" alt="Figure 4" />
+          <div class="caption"><strong>Figure 4.</strong> Calibration and predictive performance of CHAIN for four OOD datasets on DeepSeek-V3.</div>
+        </div>
+        <div class="slide">
+          <img src="static/images/fig5.png" alt="Figure 5" />
+          <div class="caption"><strong>Figure 5.</strong> Comparison of CHAIN and post-hoc calibration methods on DeepSeek-V3 (lower is better).</div>
+        </div>
+        <div class="slide">
+          <img src="static/images/fig6.png" alt="Figure 6" />
+          <div class="caption"><strong>Figure 6.</strong> DeepSeek-V3 macro-average ECE/Brier over eight ID/OOD datasets: adaptive vs. fixed α.</div>
+        </div>
+
+        <div class="nav">
+          <button type="button" id="prevBtn">Previous</button>
+          <div class="dots" id="dots"></div>
+          <button type="button" id="nextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="wrap">
+      <h2>Abstract</h2>
+      <div class="abstract">
+        <p>
+          Large language models have achieved significant progress in event forecasting, yet their probability outputs exhibit systematic calibration bias that varies heterogeneously across different domains and question types, undermining the trustworthiness of probabilistic outputs for decision-making under uncertainty. However, existing calibration methods typically correct probability outputs after prediction is complete, without modeling the structural sources of bias within the prediction process itself.
+        </p>
+        <p>
+          To address this challenge, we decompose probabilistic prediction over causal-temporal hypergraphs into three stages, evidence weighting, evidence aggregation, and source fusion, and propose <strong>CHAIN</strong>, which designs stage-specific mechanisms to mitigate bias at each stage: (i) modulating the temporal decay function by causal topological distance, (ii) aggregating approximately independent causal chains via Noisy-OR after direction-aware deduplication, and (iii) driving adaptive fusion by causal coverage and directional balance. Experimental results on cross-domain forecasting benchmarks show CHAIN outperforms existing methods in expected calibration error, Brier score, and accuracy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Paper</h2>
+      <iframe class="paper-frame" src="static/pdfs/chain.pdf" title="CHAIN paper"></iframe>
+      <div class="fallback">If the PDF does not display inside the browser, use the <strong>Paper</strong> button at the top to open it directly.</div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="wrap">
+      <h2>BibTeX</h2>
+      <pre><code>@misc{liu2026chain,
+  title        = {CHAIN: Calibrated LLM Forecasting via Causal-Temporal Hypergraph Inference},
+  author       = {Wenjin Liu and Chenxi Wang and Yue Lu and Zhe Cui and Haoran Luo},
+  year         = {2026},
+  eprint       = {2609.36689},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  url          = {https://arxiv.org/abs/2609.36689}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">CHAIN Project Page</div>
+  </footer>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dotsBox = document.getElementById('dots');
+      let index = 0;
+
+      const dots = slides.map((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => show(i));
+        dotsBox.appendChild(d);
+        return d;
+      });
+
+      function show(i) {
+        index = (i + slides.length) % slides.length;
+        slides.forEach((s, j) => s.classList.toggle('active', j === index));
+        dots.forEach((d, j) => d.classList.toggle('active', j === index));
+      }
+
+      document.getElementById('prevBtn').addEventListener('click', () => show(index - 1));
+      document.getElementById('nextBtn').addEventListener('click', () => show(index + 1));
+    })();
+  </script>
+</body>
+</html>
